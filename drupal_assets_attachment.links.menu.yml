@@ -1,0 +1,8 @@
+
+# Asset menu items definition
+entity.asset.collection:
+  title: 'Asset'
+  route_name: entity.asset.collection
+  description: 'List Asset (bundles)'
+  parent: system.admin_structure
+  weight: 99

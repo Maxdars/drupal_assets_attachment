@@ -1,0 +1,12 @@
+drupal_assets_attachment.asset.*:
+  type: config_entity
+  label: 'Asset config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
