@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Module related hooks.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function drupal_assets_attachment_page_attachments(array &$attachments) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node && $node instanceof \Drupal\node\Entity\Node) {
+    $assetsAttachmentManager = \Drupal::service('drupal_assets_attachment.manager');
+    $assetsAttachmentManager->attachAssets($attachments);
+  }
+}
+
+

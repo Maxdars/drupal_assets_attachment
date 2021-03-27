@@ -127,7 +127,8 @@ class AssetForm extends EntityForm {
       $condition_form['#type'] = 'details';
       $condition_form['#title'] = $condition->getPluginDefinition()['label'];
       $condition_form['#group'] = 'conditions_tabs';
-      $conditions_form[$condition_id] = $condition_form + $condition->buildConfigurationForm([], $form_state);;
+      $conditions_form[$condition_id] = $condition_form + $condition->buildConfigurationForm([], $form_state);
+      unset($conditions_form[$condition_id]['negate']);
     }
 
     $form['conditions_collection'] = $conditions_form;

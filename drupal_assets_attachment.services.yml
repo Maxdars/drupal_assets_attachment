@@ -1,0 +1,4 @@
+services:
+  drupal_assets_attachment.manager:
+    class: Drupal\drupal_assets_attachment\Services\AssetsAttachmentManager
+    arguments: ['@entity_type.manager', '@plugin.manager.condition']
