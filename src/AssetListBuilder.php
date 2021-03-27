@@ -16,6 +16,7 @@ class AssetListBuilder extends ConfigEntityListBuilder {
   public function buildHeader() {
     $header['label'] = $this->t('Asset');
     $header['id'] = $this->t('Machine name');
+    $header['type'] = $this->t('Type');
     return $header + parent::buildHeader();
   }
 
@@ -25,7 +26,7 @@ class AssetListBuilder extends ConfigEntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     $row['label'] = $entity->label();
     $row['id'] = $entity->id();
-    // You probably want a few more properties here...
+    $row['type'] = $entity->getType();
     return $row + parent::buildRow($entity);
   }
 

@@ -8,5 +8,20 @@ drupal_assets_attachment.asset.*:
     label:
       type: label
       label: 'Label'
+    file:
+      type: sequence
+      label: 'File id'
+      sequence:
+        type: file.[index]
+        label: 'file id'
+    type:
+      type: string
+      label: 'Type'
     uuid:
       type: string
+    conditions:
+      type: sequence
+      label: 'Insertion conditions'
+      sequence:
+        type: condition.plugin.[id]
+        label: 'Insertion condition'

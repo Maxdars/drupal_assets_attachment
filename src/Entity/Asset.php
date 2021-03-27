@@ -24,6 +24,13 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   },
  *   config_prefix = "asset",
  *   admin_permission = "administer site configuration",
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "file",
+ *     "type",
+ *     "conditions"
+ *   },
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
@@ -53,5 +60,70 @@ class Asset extends ConfigEntityBase implements AssetInterface {
    * @var string
    */
   protected $label;
+
+  /**
+   * The asset file id.
+   *
+   * @var integer
+   */
+  protected $file;
+
+  /**
+   * The asset type (style or script).
+   *
+   * @var string
+   */
+  protected $type;
+
+  /**
+   * The insertion conditions.
+   *
+   * Each item is the configuration array.
+   *
+   * @var array
+   */
+  protected $conditions = [];
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setConditions($condition_id, $condition) {
+    $this->conditions[$condition_id] = $condition;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getConditions() : array {
+    return $this->conditions;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setFileId($fid) {
+    return $this->file = $fid;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFileId() {
+    return $this->file;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setType($type) {
+    return $this->type = $type;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getType() {
+    return $this->type;
+  }
 
 }
